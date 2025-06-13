@@ -71,3 +71,5 @@ This project is for demonstration and educational purposes. Replace content and 
 
 **Demo:**  
 Open `index.html` in your browser or run with Docker to view the DigiSign company profile website.
+or
+Access [https://neilsamaa.github.io/digisign-company-profile/](https://neilsamaa.github.io/digisign-company-profile/)
