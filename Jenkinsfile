@@ -6,7 +6,7 @@ pipeline {
         git 'https://github.com/Anisyaaaaa/company-profile'
       }
     }
-    stage('Build Image') {
+    stage('Build Docker Image') {
       steps {
         sh 'docker build -t company-profile:latest .'
       }
@@ -19,9 +19,9 @@ pipeline {
     stage('Deploy to Kubernetes') {
       steps {
         sh '''
-        kubectl apply -f k8s/deployment.yaml
-        kubectl apply -f k8s/service.yaml
-        kubectl apply -f k8s/ingress.yaml
+          kubectl apply -f k8s/deployment.yaml
+          kubectl apply -f k8s/service.yaml
+          kubectl apply -f k8s/ingress.yaml
         '''
       }
     }
