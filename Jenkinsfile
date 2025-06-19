@@ -1,9 +1,12 @@
 pipeline {
   agent any
+  environment {
+    MINIKUBE_HOME = "/home/anisa"
+  }
   stages {
     stage('Clone') {
       steps {
-        git branch: 'main', url: 'https://github.com/Anisyaaaaa/company-profile'
+        git 'https://github.com/Anisyaaaaa/company-profile'
       }
     }
     stage('Build Docker Image') {
