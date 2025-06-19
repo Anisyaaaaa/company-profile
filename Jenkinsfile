@@ -6,19 +6,23 @@ pipeline {
         git 'https://github.com/Anisyaaaaa/company-profile'
       }
     }
-    stage('Build Docker Image') {
+    stage('Build Image') {
       steps {
-        sh 'docker build -t project-final13:latest .'
+        sh 'docker build -t company-profile:latest .'
       }
     }
-    stage('Push to Minikube (optional registry)' {
+    stage('Load to Minikube') {
       steps {
-        sh 'minikube image load project-final13:latest'
+        sh 'minikube image load company-profile:latest'
       }
     }
-    stage('Deploy to K8s') {
+    stage('Deploy to Kubernetes') {
       steps {
-        sh 'kubectl apply -f k8s/'
+        sh '''
+        kubectl apply -f k8s/deployment.yaml
+        kubectl apply -f k8s/service.yaml
+        kubectl apply -f k8s/ingress.yaml
+        '''
       }
     }
   }
