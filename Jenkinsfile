@@ -38,3 +38,4 @@ pipeline {
             echo '📦 Pipeline selesai dijalankan.'
         }
     }
+}
