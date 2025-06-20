@@ -1,6 +1,7 @@
 pipeline {
   agent any
   environment {
+    HOME = "/home/anisa"
     MINIKUBE_HOME = "/home/anisa"
   }
   stages {
